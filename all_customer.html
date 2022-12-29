@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="bank.css">
+    <title>All Customers</title>
+    <style>
+        #btn {
+            margin-left: 43%;
+            text-align: center;
+            background-color: rgb(28, 28, 70);
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: white;
+            font-weight: 600;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        #btn:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center; color: black;margin-top: 20px;">Net Bank Balance : <span id="rs">150000</span> Rs</h1>
+    <button id="btn" data-toggle="modal" data-target="#myModal">SEND MONEY</button>
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" style="font-weight: 600;">Send Money</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="usr">Recipient's Name:</label>
+                            <input type="text" class="form-control" id="usr">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Enter Amount :</label>
+                            <input type="number" class="form-control" id="pwd">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        style="background-color: rgb(72, 196, 72);" onclick="money()">Send Money</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover table-dark"
+        style="width: 1000px;text-align: center;margin: auto;margin-top: 30px; margin-bottom: 50px;">
+        <thead>
+            <tr>
+                <th scope="col">Sr.No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Bank Balance(In Rs)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Gauri</td>
+                <td>gauri@email.com</td>
+                <td id="gauri">1200</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Teju</td>
+                <td>teju@email.com</td>
+                <td id="teju">8900</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Anagha</td>
+                <td>anagha@email.com</td>
+                <td id="anagha">5000</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Nitya</td>
+                <td>nitya@email.com</td>
+                <td id="nitya">2300</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Sanvi</td>
+                <td>sanvi@email.com</td>
+                <td id="sanvi">6700</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>Akshada</td>
+                <td>akshada@email.com</td>
+                <td id="akshada">7800</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>Pradnya</td>
+                <td>pradnya@email.com</td>
+                <td id="pradnya">6000</td>
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>Aditi</td>
+                <td>aditi@email.com</td>
+                <td id="aditi">3400</td>
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>Gayatri</td>
+                <td>gayatri@email.com</td>
+                <td id="gayatri">4500</td>
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+                <td>Daya</td>
+                <td>daya@email.com</td>
+                <td id="daya">8700</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        function money() {
+            let amount = document.getElementById("pwd").value;
+            let name = document.getElementById("usr").value;
+            let user = name.toLowerCase();
+            console.log(user);
+            let n;
+            let amt = parseInt(amount);
+            if (user === "gauri") {
+                n = document.getElementById("gauri").innerHTML;
+                o = "gauri";
+                // let i = parseInt(n);
+                //document.getElementById("gauri").innerHTML=amt+i;
+            }
+            else if (user === "teju") {
+                n = document.getElementById("teju").innerHTML;
+                o = "teju";
+            }
+            else if (user === "anagha") {
+                n = document.getElementById("anagha").innerHTML;
+                o = "anagha";
+            }
+            else if (user === "nitya") {
+                n = document.getElementById("nitya").innerHTML;
+                o = "nitya";
+            }
+            else if (user === "sanvi") {
+                n = document.getElementById("sanvi").innerHTML;
+                o = "sanvi";
+            }
+            else if (user === "akshada") {
+                n = document.getElementById("akshada").innerHTML;
+                o = "akshada";
+            }
+            else if (user === "pradnya") {
+                n = document.getElementById("pradnya").innerHTML;
+                o = "pradnya";
+            }
+            else if (user === "aditi") {
+                n = document.getElementById("aditi").innerHTML;
+                o = "aditi";
+            }
+            else if (user === "gayatri") {
+                n = document.getElementById("gayatri").innerHTML;
+                o = "gayatri";
+            }
+            else if (user === "daya") {
+                n = document.getElementById("daya").innerHTML;
+                o = "daya";
+            }
+            let i = parseInt(n);
+            let r = document.getElementById("rs").innerHTML;
+            let in_rs = parseInt(r);
+            document.getElementById("rs").innerHTML = in_rs - amt;
+            document.getElementById(o).innerHTML = amt + i;
+        }
+    </script>
+</body>
+
+</html>
